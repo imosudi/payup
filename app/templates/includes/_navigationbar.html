@@ -1,0 +1,73 @@
+{% block navbar %}
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+	<div class="container">
+    		<a class="navbar-brand" href="/">
+		<img class="img-responsive mx-auto" src="{{url_for('static', 
+		filename='assets/img/logo.png')}}" alt="" style="width:132; height:58">
+		</a>
+    				<!--button class="navbar-toggler" type="button" data-toggle="collapse" 
+    				 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle
+    				 navigation" data-target="#navbarCollapse">
+      				<span class="navbar-toggler-icon"></span>
+    				</button-->
+    	 	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+    	 	aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle
+    	 	navigation" data-bs-target="#navbarCollapse" > <span class="navbar-toggler-icon"></span>
+      		</button>
+    		<div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+			<ul class="nav nav-tabs ml-auto gap-2 d-md-flex justify-content-md-middle">
+				<li class="nav-item active">
+					{% if pageName == "/" %}
+						<a class="nav-link active text-success" 
+						style="font-family; weight:bold; 
+						 'Indie Flower', cursive;" href="/">  Home </a>
+    					{% else %}
+						<a class="nav-link text-primary" 
+						style="font-family: 
+						 'Indie Flower', cursive;" href="/"> Home </a>
+					{% endif %}
+				</li>
+				<li class="nav-item">
+					{% if pageName == "login" %}
+						<a class="nav-link active text-success" 
+						style="font-family; weight:bold; 
+						 'Indie Flower', cursive;" href="/login"> Login </a>
+    					{% else %}
+						  <a class="nav-link text-primary" 
+						style="font-family: 
+						 'Indie Flower', cursive;" href="/login"> Login </a>
+					{% endif %}
+				</li>
+				<li class="nav-item">
+					{% if pageName == "register" %}
+    						<a class="nav-link active text-success" 
+						style="font-family; weight:bold; 
+						 'Indie Flower', cursive;" href="/register"> Registration </a>
+    					{% else %}
+    						<a class="nav-link text-primary" 
+						style="font-family: 
+						 'Indie Flower', cursive;" href="/register"> Registration</a>
+    					{% endif %}
+				</li>
+				<li class="nav-item">
+					{% if pageName == "about" %}
+    						<a class="nav-link active text-success" 
+						style="font-family; weight:bold; 
+						 'Indie Flower', cursive;" href="/about">About</a>
+    					{% else %}
+    						<a class="nav-link text-primary" 
+						style="font-family: 
+						 'Indie Flower', cursive;" href="/about">About</a>
+    					{% endif %}
+				</li>
+				<!--li class="nav-item">
+					<a class="nav-link " href="#" tabindex="-1" 
+					aria-disabled="true">Disabled</a>
+				</li-->
+			</ul>
+		</div>
+	</div>
+  	</nav>
+  	
+
+{% endblock %}

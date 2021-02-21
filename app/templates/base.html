@@ -1,0 +1,138 @@
+
+{% block head %}
+
+    	<meta name="description" content="">
+    	<meta name="author" content="Mosudi Isiaka, and Bootstrap contributors">
+	<meta name="generator" content="Jekyll v4.1.1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<meta name="msapplication-config" content="{{url_for('static', 
+    	filename='assets/img/favicons/browserconfig.xml')}}">
+	<meta name="theme-color" content="#563d7c">
+    	<title> Flask WebApp Bootstrap5 Template </title>
+
+	{% block styles %}
+
+	    	
+	    	
+	    	<!-- Bootstrap core CSS -->
+			<link href="{{url_for('static', 
+			filename='css/bootstrap.min.css')}}" rel="stylesheet" >
+			<link href="{{url_for('static', 
+	    		filename='css/narrow-jumbotron.css')}}" rel="stylesheet">
+	    		
+		<style>
+	      		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+	      		}
+
+	      		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+			font-size: 3.5rem;
+			}
+	      		}
+	    	</style>
+
+    
+    <<!-- Custom styles for this template -->
+	    		<link href="{{url_for('static', 
+	    		filename='css/sticky-footer-navbar/sticky-footer-navbar.css')}}" rel="stylesheet">
+	    		
+	    		
+
+	    	<!-- Favicons -->
+			<link rel="apple-touch-icon" 
+				href="{{url_for('static', 
+				filename='assets/img/favicons/apple-touch-icon.png')}}" sizes="180x180">
+			<link rel="icon" 
+				href="{{url_for('static', 
+				filename='assets/img/favicons/favicon-32x32.png')}}" sizes="32x32" type="image/png">
+			<link rel="icon" 
+				href="{{url_for('static', 
+				filename='assets/img/favicons/favicon-16x16.png')}}" sizes="16x16" type="image/png">
+			<link rel="manifest" 
+				href="{{url_for('static', 
+				filename='assets/img/favicons/manifest.json')}}">
+			<link rel="mask-icon" 
+				href="{{url_for('static', 
+				filename='assets/img/favicons/safari-pinned-tab.svg')}}"color="#563d7c">
+			<link rel="icon" 
+				href="{{url_for('static', 
+				filename='assets/img/favicons/favicon.ico')}}">
+		
+
+	 
+	{% endblock %}
+
+	{% block scripts %}
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script>
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" 			integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" 		crossorigin="anonymous">
+		</script>
+		<script class="jsbin" 
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script class="jsbin" 
+		src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+		<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>		
+
+
+
+{{ moment.include_moment() }}
+
+
+	{% endblock %}
+
+{% endblock %}
+ 
+{% block content %}
+
+<div class="d-flex flex-column  align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+
+{% include 'includes/_navigationbar.html' %}
+
+
+
+  <!--div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm"> -->
+
+	<!--div class="container d-flex flex-column h-100"-->
+		<header>
+  		<!-- Fixed navbar -->
+  			
+  			
+		</header>
+	<!--/div-->
+
+
+
+	{% block page_content %}
+	
+		
+	{% endblock %}
+	
+
+
+	<!--footer class="footer mt-auto py-3">
+	  	<div class="container">
+	    		<div class="container" style="text-align:center;">
+				&copy; copyright {{ moment(current_time).format('YYYY') }}
+				: <a href="#"> +234 809 867 3498</a>
+				|<a href="mailto:imosudi@gmail.com"> imosudi@gmail.com</a>
+				|<a href="http://www.mioemi.com"> www.mioemi.com</a>
+			</div>
+	  	</div>
+	</footer-->
+	
+	
+	<footer class="footer mt-auto py-3 bg-light">
+  		<div class="container" style="text-align:center;">
+			&copy; copyright {{ moment(current_time).format('YYYY') }}
+			: <a href="#"> +234 809 867 3498 </a>
+			|<a href="mailto:imosudi@gmail.com"> imosudi@gmail.com</a>
+			|<a href="http://mioemi.com"> http://mioemi.com</a>
+		</div>
+	</footer>
+</div>
+{% endblock %}
+
