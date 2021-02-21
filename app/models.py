@@ -13,7 +13,9 @@ import email_validator
 
 
 class registrationForm(Form):
-    name = StringField('Name', [validators.Length(min=5, max=50)])
+    fname = StringField('Firstname', [validators.Length(min=5, max=50)])
+    lname = StringField('Lastname', [validators.Length(min=5, max=50)])
+    dept = StringField('Department', [validators.Length(min=4, max=25)])
     username = StringField('Username', [validators.Length(min=4, max=25)])
     email = StringField('Email Address', [validators.Email()])
     password = PasswordField('New Password', [

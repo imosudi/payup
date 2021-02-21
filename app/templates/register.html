@@ -10,15 +10,29 @@
   	<div class="container">
 		<div class="container-fluid content-center">
 
-			<form method="POST" action="" class="container card" style="height: 23rem;">
+			<form method="POST" action="" class="container card" style="height: 28rem;">
 			<p>
 			<div class="row">
 				<div class="col-7">
-					<div class="form-control form-group text-success" 
+					<div class="row  form-group">
+					<div class="col-6 ">
+					<div class="text-success" 						style="font-family: 'Raleway', sans-serif;">
+						{{render_field(form.fname, class_="form-control")}}
+					</div>
+					</div>
+					<div class="col-6">
+					<div class="text-success" 
 						style="font-family: 'Raleway', sans-serif;">
-						{{render_field(form.name, class_="form-control")}}
+						{{render_field(form.lname, class_="form-control")}}
+					</div>
+					</div>
 					</div>
 
+					<div class="form-control form-group text-success" 
+						style="font-family: 'Raleway', sans-serif;">
+						{{render_field(form.dept, class_="form-control")}}
+					</div>
+					
 					<div class="form-control form-group text-success" 
 						style="font-family: 'Raleway', sans-serif;">
 						{{render_field(form.email, class_="form-control")}}
@@ -43,7 +57,7 @@
 						{{render_field(form.accept_tos, class_="form-check-label")}}
 						I accept Terms and Conditions.
 					</div>
-					<div class="d-grid gap-2 d-md-flex justify-content-md-middle">
+					<div class="d-grid gap-1 d-md-flex justify-content-md-middle">
 						<button type="submit" class="btn btn-primary btn-lg"> 
 						Submit </button>
 						<button type="reset"  class="btn btn-danger  btn-lg">
