@@ -4,20 +4,20 @@
 {% block page_content %}
 
 <!-- Begin page content -->
-<main  class="flex-shrink-0">
-  	<div class="container">
-  	
-  		<div class="card border-success mb-3" style="height: 23rem;" >
-  		<!--div class="jumbotron" style="max-width: 100%; max-height: 23rem;" -->
-  		<img class="img-fluid rounded" style="max-width: 100%; max-height: 23rem;"
-		src="{{url_for('static', filename='images/currency.jpg')}}"  >
-		  	​<!--picture>
-  <img src="{{url_for('static', filename='images/currency.jpg')}}" class="img-fluid img-thumbnail" style="max-width: 100%; height: auto; alt="...">
-</picture-->		
-		  			
-  			
- 		 </div>
- 	</div>
+<main class="flex-shrink-0" style="padding-right:0;margin-left: 0 !important;">
+  	<div class="container mx-auto">
+		<div class="container-fluid content-center mx-auto" style=" margin-left: 0 !important; padding-left;">
+  			<div class="container card border-success mb-3 mx-auto" style="height: 23rem; margin-left:0" >
+  			<!--div class="jumbotron" style="max-width: 100%; max-height: 23rem;" -->
+  				<img class="img-responsive mx-auto rounded" style="width: 100%; max-height: 23rem;"
+				src="{{url_for('static', filename='images/currency.jpg')}}" >
+		  	​	<!--picture>
+  					<img src="{{url_for('static', filename='images/currency.jpg')}}" 
+  					class="img-fluid img-thumbnail" style="max-width: 100%; height: auto; alt="...">
+				</picture-->	
+			</div>	
+		</div>	
+  	</div>
 </main>
 {% endblock %}
 

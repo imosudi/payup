@@ -1,5 +1,6 @@
 {% block navbar %}
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+<!--nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light"-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent">
 	<div class="container">
     		<a class="navbar-brand" href="/">
 		<img class="img-responsive mx-auto" src="{{url_for('static', 
@@ -23,8 +24,7 @@
 						 'Indie Flower', cursive;" href="/">  Home </a>
     					{% else %}
 						<a class="nav-link text-primary" 
-						style="font-family: 
-						 'Indie Flower', cursive;" href="/"> Home </a>
+						href="/"> Home </a>
 					{% endif %}
 				</li>
 				<li class="nav-item">
@@ -34,8 +34,7 @@
 						 'Indie Flower', cursive;" href="/login"> Login </a>
     					{% else %}
 						  <a class="nav-link text-primary" 
-						style="font-family: 
-						 'Indie Flower', cursive;" href="/login"> Login </a>
+						href="/login"> Login </a>
 					{% endif %}
 				</li>
 				<li class="nav-item">
@@ -45,8 +44,7 @@
 						 'Indie Flower', cursive;" href="/register"> Registration </a>
     					{% else %}
     						<a class="nav-link text-primary" 
-						style="font-family: 
-						 'Indie Flower', cursive;" href="/register"> Registration</a>
+						href="/register"> Registration</a>
     					{% endif %}
 				</li>
 				<li class="nav-item">
@@ -56,8 +54,7 @@
 						 'Indie Flower', cursive;" href="/about">About</a>
     					{% else %}
     						<a class="nav-link text-primary" 
-						style="font-family: 
-						 'Indie Flower', cursive;" href="/about">About</a>
+						 href="/about">About</a>
     					{% endif %}
 				</li>
 				<!--li class="nav-item">
@@ -67,7 +64,8 @@
 			</ul>
 		</div>
 	</div>
-  	</nav>
-  	
+</nav>
+<p>
+</P>
 
 {% endblock %}
