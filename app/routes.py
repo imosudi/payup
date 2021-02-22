@@ -63,7 +63,13 @@ def about():
     return render_template('about.html', pageName=pageName, current_time=datetime.utcnow())
     
 
-
+# Employee Enrolment
+@app.route('/enrolment')
+def renrollment():
+    pageName = 'enrolment'
+    return render_template('enrolment.html', pageName=pageName, current_time=datetime.utcnow())
+    
+    
 # Test Pages
 @app.route('/register2')
 def register2():

@@ -16,7 +16,7 @@
 	    	
 	    	<!-- Bootstrap core CSS -->
 			<link href="{{url_for('static', 
-			filename='css/bootstrap.min.css')}}" rel="stylesheet" >
+			filename='css/bootstrap.css')}}" rel="stylesheet" >
 			<link href="{{url_for('static', 
 	    		filename='css/narrow-jumbotron.css')}}" rel="stylesheet">
 	    		
@@ -94,11 +94,13 @@
 			<meta name="theme-color" content="#ffffff">
 
 
-		<!-- Google Fonts -->
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto:ital,wght@1,300&display=swap"
-		 rel="stylesheet">
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap">
+	
+	<link rel="stylesheet 
+	href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto:ital,wght@1,300&display=swap">
 	 
 	{% endblock %}
 
@@ -124,7 +126,7 @@
  
 {% block content %}
 
-<div class="d-flex flex-column  align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+<div class="d-flex flex-column  align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm" style="background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg"); height: 100%; background-position: center; background-repeat: no-repeat; background-size: cover;">
 
 {% include 'includes/_navigationbar.html' %}
 

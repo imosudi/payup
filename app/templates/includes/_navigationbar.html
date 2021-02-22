@@ -1,6 +1,6 @@
 {% block navbar %}
-<!--nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light"-->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+<!--nav class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent"-->
 	<div class="container">
     		<a class="navbar-brand" href="/">
 		<img class="img-responsive mx-auto" src="{{url_for('static', 
@@ -46,6 +46,17 @@
     					{% else %}
     						<a class="nav-link text-primary" 
 						href="/register"> Registration</a>
+    					{% endif %}
+				</li>
+				<li class="nav-item">
+					{% if pageName == "enrolment" %}
+    						<a class="nav-link active text-success" 
+						style="font-family; weight:bold; 
+						 'Indie Flower', cursive;" href="/enrolment">
+						 Enrollment</a>
+    					{% else %}
+    						<a class="nav-link text-primary" 
+						 href="/enrolment">Enrolment</a>
     					{% endif %}
 				</li>
 				<li class="nav-item">
