@@ -63,6 +63,13 @@ def about():
     return render_template('about.html', pageName=pageName, current_time=datetime.utcnow())
     
 
+
+# Test Pages
+@app.route('/register2')
+def register2():
+    pageName = 'register2'
+    return render_template('register2.html', pageName=pageName, current_time=datetime.utcnow())
+
 # Errors
 @app.errorhandler(404)
 def page_not_found(e):

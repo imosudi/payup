@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+{% from "includes/_formhelpers.html" import render_field %}
+
+
+<main class="flex-shrink-0">
+  	<div class="container">
+		<div class="container-fluid content-center">
+    	<!--form start -->
+        <form role="form" class="container card" >
+			
+          <!--header for the form -->  
+          <h4 class="form-header text-center">User Registration</h4>
+          
+          <!--personal information header -->
+          <div class="mb-3 text-left">
+            <h5 class="text-dark">Personal Information</h5>
+            <hr>
+          </div>
+          
+          <!--row containing first and last name -->
+          <div class="row">
+            <!--first name block -->
+            <div class="mb-3 col-md-6">
+                      <input type="text" class="form-control" placeholder="First Name">
+            </div>
+            <!--last name block -->
+            <div class="mb-3 col-md-6">
+                      <input type="text" class="form-control" placeholder="Last Name">
+            </div>
+         </div>
+         
+         <!--row containing phone number and email fields -->
+         <div class="row">
+          <!--phone number field -->
+            <div class="mb-3 col-md-6">
+                      <input type="tel" class="form-control" placeholder="Phone Number">
+            </div>
+          <!--email address field -->
+            <div class="mb-3 col-md-6">
+                      <input type="email" class="form-control" placeholder="E-Mail">
+				</input>
+            </div>
+         </div>
+          
+          <!--payment method header -->
+          <div class="mb-3 text-left">
+            <h5 class="text-dark">Staff Type</h5>
+            <hr>
+          </div>
+          
+          <!--row containing payment methods -->
+          <div class="row ml-0 mb-3">
+             <!--block with image and checkbox -->
+             <div class="form-check col-md-6 mb-2">
+			  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onclick="Check()" checked>
+			  <label class="form-check-label" for="flexRadioDefault1">
+				Contract
+			  </label>
+			</div>
+			<div class="form-check col-md-6">
+			  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onclick="Check()">
+			  <label class="form-check-label" for="flexRadioDefault2">
+				Permanent
+			  </label>
+			</div>
+           </div>
+          
+          <!--payment information header -->
+          <div class="mb-3 text-left">
+            <h5 class="text-dark">Bank Information</h5>
+            <hr>
+          </div> 
+                 
+          <!--div1 start -->       
+       	  <div id="div1">
+                          
+              <!--div block for card holder's name -->
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Bank Account Name">
+                </div>
+                
+                <!--block gor card number -->                                           
+                <div class="mb-3">
+                    <input type="number" class="form-control" placeholder="Bank Account Number">
+                </div>
+                
+                <!--div block with row containg 3 fields -->
+                <div class="row">
+                      <!--div block for selection of month -->
+                      <div class="col-md-4 mb-3 pr-md-0">
+                      <select name="date" class="form-select">
+                          <option value="">Account Type</option>
+                          <option>Savings</option>
+                          <option>Current</option>
+                      </select>
+                      </div>
+                      <!--div block for selection of year -->
+                      <!--div class="col-md-4 mb-3 pr-md-0">
+                      <select name="date" class="form-select">
+                          <option value="">Year</option>
+                          <option>2020</option>
+                          <option>2021</option>
+                          <option>2022</option>
+                          <option>2023</option>
+                          <option>2024</option>
+                          <option>2025</option>
+                          <option>2026</option>
+                          <option>2027</option>
+                          <option>2028</option>
+                          <option>2029</option>
+                          <option>2030</option>
+                      </select>
+                      </div-->
+                      <!--div block for CVV input field -->
+                      <div class="col-md-4 mb-3">
+                      <input type="number" class="form-control" placeholder="Sorting Number">
+                      </div>  
+                </div>
+                
+                <!--div block for full name on card -->                    
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Bank Name">
+                </div>
+                
+          </div> 
+          <!--div1 end -->
+       
+       
+          <!--div2 start -->
+          <div id="div2">
+          
+       			<!--div block for paypal address on card -->                    
+                <div class="mb-3">
+   					<input type="text" class="form-control" placeholder="Bank Branch Address">
+  		  	    </div>
+                
+          </div>
+          <!--div2 end -->
+
+       
+          <!--Home address header -->  
+          <div class="mb-3 text-left">
+            <h5 class="text-dark">Home Address</h5>
+            <hr>
+          </div>
+          
+          <!--div block for street address field -->
+          <div class="mb-3">
+            	<textarea class="form-control textarea-1" placeholder="Street Address 1"></textarea>
+          </div>
+          <div class="mb-3">
+            	<textarea class="form-control textarea-1" placeholder="Street Address 2"></textarea>
+          </div>
+          
+          <!--row containing country and state field -->
+          <div class="row">
+            <div class="mb-3 col-md-6">
+   				<input type="text" class="form-control" placeholder="Country" >
+  		  	</div>
+            <div class="mb-3 col-md-6">
+   				<input type="text" class="form-control" placeholder="State" >
+  		  	</div>
+          </div> 
+         
+         <!--row containing city and postal/zip code field -->
+         <div class="row">
+          	<div class="mb-3 col-md-6">
+   				<input type="text" class="form-control" placeholder="City" >
+  		  	</div>
+          	<div class="mb-3 col-md-6">
+   				<input type="number" class="form-control" placeholder="Postal / Zip Code" >
+  		  	</div>
+         </div> 
+          
+          <!--div block for done button -->
+          <div class="mb-3 text-center">
+            <!--button class="btn btn-default col-md-4" type="submit">Submit Application</button-->
+           	<div class="d-grid gap-1 d-md-flex justify-content-md-middle">
+			<button type="submit" class="btn btn-primary btn-lg">Submit </button>
+			<button type="reset"  class="btn btn-danger  btn-lg">Clear Form</button>
+		</div>
+          </div>
+          
+        </form>
+        <!--form end -->
+        
+    </div>
+     <!--col-md-7 end -->
+     
+ </div> 
+ <!--container end -->
+ </main>
+{% endblock %}
