@@ -9,33 +9,23 @@ from datetime import datetime
 
 from app import app
 
+from app import mysql
+
 from app.models import *
-from app.appconfig import *
+from app.appconfig import mio_config, createEmployee
 #from app.dbop import createdbtable
 
-
+#dbConnect()
 
 # Home Page
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def home():
     pageName = '/'
     #createdbtable = createdbtable()
-    class createdbtable():
-        cur = mysql.connection.cursor()
-        cur.execute(
-        ''' 
-        CREATE TABLE IF NOT EXISTS employees ( 
-	id INT(50) NOT NULL AUTO_INCREMENT , 
-	fname VARCHAR(100) NULL DEFAULT NULL ,
-	lname VARCHAR(100) NULL DEFAULT NULL ,
-	dept VARCHAR(150) NULL DEFAULT NULL , 
-	username VARCHAR(450) NULL DEFAULT NULL , 
-	email VARCHAR(150) NULL DEFAULT NULL ,
-	password VARCHAR(150) NULL DEFAULT NULL , 
-	INDEX (id)) ENGINE = InnoDB;
-	)
-	'''
-	)
+    #employee=createEmployee()
+    #employeeQuery= createEmployee.createEmployeeSQL()
+    dbconnect=createEmployee.dbConnect()
+    
     return render_template('index.html', pageName=pageName, current_time=datetime.utcnow())
     
 
