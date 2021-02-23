@@ -81,6 +81,14 @@
 							Permanent
 						</label>
 					</div>
+					<div class="custom-file  card">
+			<input type="file" class="custom-file-input " name = "image" onchange="readURL(this);" 
+				id="validatedCustomFile" required>
+			<!--label class="custom-file-label" for="validatedCustomFile">Choose image file...</label-->
+			<img class="img-responsive mx-auto " style="width:250px;" 
+    			id="blah" src="{{url_for('static', filename='images/upload_passport.jpg')}}" 
+    			alt="Upload image" />
+		</div>
            			</div>
           
           			<!--payment information header -->

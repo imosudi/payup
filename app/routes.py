@@ -64,6 +64,10 @@ def renrollment():
 @app.route('/register2')
 def register2():
     pageName = 'register2'
+    if request.method == 'POST':
+        image_name 	= request.files['image']
+        imagename 	= image_name.filename
+        image 	= image_name.read() #.filename
     return render_template('register2.html', pageName=pageName, current_time=datetime.utcnow())
 
 # Errors
