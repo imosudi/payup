@@ -3,7 +3,7 @@ from flask import Flask, request
 from flask_wtf import FlaskForm
 
 from wtforms import Form, StringField, SubmitField, IntegerField, HiddenField, validators, BooleanField, PasswordField, RadioField, SelectField
-from wtforms.validators import Required  
+from wtforms.validators import Required
 from wtforms.widgets import TextArea
 from flask_wtf.file import FileField
 from werkzeug.utils import secure_filename
@@ -17,7 +17,8 @@ class enrolmentForm(Form):
     lname = StringField('Last Name', [validators.Length(min=5, max=50)])
     pnumber = StringField('Phone Number', [validators.Length(min=10, max=14)])
     email = StringField('E-mail Address', [validators.Email()])
-    image = FileField()
+    image = FileField(u'image', validators=[Required()])
+#image = FileField()
     staff_type = RadioField('Staff Type', 
     choices=[('flexRadioDefault1','Contract'),('flexRadioDefault1','Permanent')])
     acct_name = StringField('Account Name', [validators.Length(min=8)])

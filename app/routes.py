@@ -4,7 +4,7 @@ from flask_moment import Moment
 
 from datetime import datetime
 
-
+from werkzeug.utils import secure_filename
 
 
 from app import app
@@ -61,12 +61,14 @@ def renrollment():
     form = enrolmentForm(request.form) #try (request.flaskForm)
     print(form)
     if request.method == "POST" and  form.validate():
-        print("This form has been validated and ready for POSTING")
+        #print("This form has been validated and ready for POSTING")
         fname = form.fname.data
         lname = form.lname.data 
         pnumber = form.pnumber.data 
         email = form.email.data 
-        image = form.image.data 
+        image = secure_filename(form.image.data.filename) #= request.files['image'] #form.image.data
+        imagename = image.filename()
+        #image = image.read() #.filename 
         staff_type = form.staff_type.data 
         acct_name = form.acct_name.data 
         acct_number = form.acct_number.data 
