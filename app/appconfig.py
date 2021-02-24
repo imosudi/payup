@@ -11,6 +11,8 @@ app.config['MYSQL_HOST'] = 'mysql-20948-0.cloudclusters.net' #'204.2.63.91'
 app.config['MYSQL_DB'] = 'miodbapp' 
 app.config['MYSQL_PORT'] = 20992
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+app.config['SECRET_KEY'] = 'this should be very very difficult ot teg'
+
 
 
 mio_config=app.config

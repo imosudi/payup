@@ -57,7 +57,8 @@ def about():
 @app.route('/enrolment')
 def renrollment():
     pageName = 'enrolment'
-    return render_template('enrolment.html', pageName=pageName, current_time=datetime.utcnow())
+    form = enrolmentForm(request.form)
+    return render_template('enrolment.html', form=form, pageName=pageName, current_time=datetime.utcnow())
     
     
 # Test Pages
