@@ -71,6 +71,7 @@ class employeeEnrolmentTable():
 	state VARCHAR(100) NULL DEFAULT NULL ,
 	city VARCHAR(100) NULL DEFAULT NULL ,
 	postal_zip_code VARCHAR(100) NULL DEFAULT NULL ,
+	timestamp TIMESTAMP,
 	INDEX (id)) ENGINE = InnoDB;
 	)
 	'''

@@ -81,27 +81,19 @@ def renrollment():
         city = form.city.data 
         postal_zip_code = form.postal_zip_code.data
         # Creating cursor
-        cur = mysql.connect()
-        curr = cur.cursor()
-        cur.autocommit(True) 
+        cur = mysql.connection.cursor()
+        mysql.connection.autocommit(True) 
         #cur.execute("SELECT * FROM enrolment")
         #dbasedata = cur.fetchall()
-        print(fname, lname, pnumber, email, image, staff_type, acct_name, acct_number, acct_type, acct_sort_number, bank_name, bank_branch_addr, home_addr1, home_addr2, country, state, city, postal_zip_code)
         
-        #cur.execute("INSERT INTO users(name, username, email, password) VALUES(%s, %s, %s,%s)", (name, username, email, password))
-        if curr.execute("INSERT INTO enrolment(fname, lname, pnumber, email, image, staff_type,   \
+        cur.execute("INSERT INTO enrolment(fname, lname, pnumber, email, image, staff_type,   \
         acct_name, acct_number, acct_type, acct_sort_number, bank_name, bank_branch_addr, \
         home_addr1, home_addr2, country, state, city, postal_zip_code)  \
         VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", \
          ( fname, lname, pnumber, email, image, staff_type, acct_name, acct_number, acct_type, \
           acct_sort_number, bank_name, bank_branch_addr, home_addr1, home_addr2, country, state, \
-           city, postal_zip_code)):
-            print("Success!")
+           city, postal_zip_code))
 
-        #mysql.connect.autocommit(True)
-        if cur.commit():
-            print("DB saved!")
-        #mysql.connection_object.commit()
         mysql.connect.close()
         
         pass

@@ -20,11 +20,11 @@ class enrolmentForm(Form):
     image = FileField()
     staff_type = RadioField('Staff Type', 
     choices=[('flexRadioDefault1','Contract'),('flexRadioDefault1','Permanent')])
-    acct_name = StringField('Account Name', [validators.Length(min=11, max=14)])
+    acct_name = StringField('Account Name', [validators.Length(min=8)])
     acct_number = StringField('Account Number', [validators.Length(min=10, max=14)])
     acct_type = SelectField(u'Account Type', 
     choices = [('Savings', 'Savings'), ('Current', 'Current')])
-    acct_sort_number = StringField('Sorting Number', [validators.Length(min=4, max=14)])
+    acct_sort_number = StringField('Sorting Number', [validators.Length(min=4)])
     bank_name = StringField('Bank Name', [validators.Length(min=3, max=80)])
     bank_branch_addr = StringField('Bank Branch Address', [validators.Length(min=3, max=80)])
     home_addr1 = StringField(u'Home Address 1', 
