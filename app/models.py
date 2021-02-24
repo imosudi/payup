@@ -10,11 +10,12 @@ from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
 
 import email_validator
+#fname lname pnumber email image staff_type acct_name acct_number acct_type acct_sort_number bank_name bank_branch_addr home_addr1 home_addr2 country state city postal_zip_code
 
-class enrolmentForm(FlaskForm):
+class enrolmentForm(Form):
     fname = StringField('First Name', [validators.Length(min=5, max=50)])
     lname = StringField('Last Name', [validators.Length(min=5, max=50)])
-    pnumber = StringField('Phone Number', [validators.Length(min=11, max=14)])
+    pnumber = StringField('Phone Number', [validators.Length(min=10, max=14)])
     email = StringField('E-mail Address', [validators.Email()])
     image = FileField()
     staff_type = RadioField('Staff Type', 
@@ -24,16 +25,16 @@ class enrolmentForm(FlaskForm):
     acct_type = SelectField(u'Account Type', 
     choices = [('Savings', 'Savings'), ('Current', 'Current')])
     acct_sort_number = StringField('Sorting Number', [validators.Length(min=4, max=14)])
-    bank_name = StringField('Bank Name', [validators.Length(min=11, max=80)])
-    bank_branch_addr = StringField('Bank Branch Address', [validators.Length(min=11, max=80)])
+    bank_name = StringField('Bank Name', [validators.Length(min=3, max=80)])
+    bank_branch_addr = StringField('Bank Branch Address', [validators.Length(min=3, max=80)])
     home_addr1 = StringField(u'Home Address 1', 
     widget=TextArea()) #, [validators.Length(min=11, max=80), validators.DataRequired()])
     home_addr2 = StringField(u'Home Address 2', 
     widget=TextArea())#, [validators.Length(min=11, max=80)])  
-    country = StringField('Country', [validators.Length(min=11, max=80)])
-    state = StringField('State', [validators.Length(min=11, max=80)])  
-    city = StringField('City', [validators.Length(min=11, max=80)])
-    postal_zip_code = StringField('Postal/Zip Code', [validators.Length(min=11, max=80)])
+    country = StringField('Country', [validators.Length(min=3, max=80)])
+    state = StringField('State', [validators.Length(min=3, max=80)])  
+    city = StringField('City', [validators.Length(min=3, max=80)])
+    postal_zip_code = StringField('Postal/Zip Code', [validators.Length(min=3, max=80)])
     
     
     

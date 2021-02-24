@@ -12,7 +12,7 @@ from app import app
 from app import mysql
 
 from app.models import *
-from app.appconfig import mio_config, createEmployee
+from app.appconfig import mio_config, createEmployee, employeeEnrolmentTable
 #from app.dbop import createdbtable
 
 #dbConnect()
@@ -28,6 +28,7 @@ def home():
     
     return render_template('index.html', pageName=pageName, current_time=datetime.utcnow())
     
+# About App Page
 
 # User login
 @app.route('/login', methods=['GET', 'POST'])
@@ -46,7 +47,6 @@ def register():
     return render_template('register.html', pageName=pageName, form=form, current_time=datetime.utcnow())
 
 
-# About App Page
 @app.route('/about')
 def about():
     pageName = 'about'
@@ -54,10 +54,57 @@ def about():
     
 
 # Employee Enrolment
-@app.route('/enrolment')
+@app.route('/enrolment', methods=['GET', 'POST'])
 def renrollment():
     pageName = 'enrolment'
-    form = enrolmentForm(request.form)
+    dbconnect=employeeEnrolmentTable.dbConnect()
+    form = enrolmentForm(request.form) #try (request.flaskForm)
+    print(form)
+    if request.method == "POST" and  form.validate():
+        print("This form has been validated and ready for POSTING")
+        fname = form.fname.data
+        lname = form.lname.data 
+        pnumber = form.pnumber.data 
+        email = form.email.data 
+        image = form.image.data 
+        staff_type = form.staff_type.data 
+        acct_name = form.acct_name.data 
+        acct_number = form.acct_number.data 
+        acct_type =form.acct_type.data 
+        acct_sort_number = form.acct_sort_number.data 
+        bank_name = form.bank_name.data 
+        bank_branch_addr =form.bank_branch_addr.data 
+        home_addr1 = form.home_addr1.data 
+        home_addr2 = form.home_addr2.data 
+        country = form.country.data 
+        state = form.state.data 
+        city = form.city.data 
+        postal_zip_code = form.postal_zip_code.data
+        # Creating cursor
+        cur = mysql.connect()
+        curr = cur.cursor()
+        cur.autocommit(True) 
+        #cur.execute("SELECT * FROM enrolment")
+        #dbasedata = cur.fetchall()
+        print(fname, lname, pnumber, email, image, staff_type, acct_name, acct_number, acct_type, acct_sort_number, bank_name, bank_branch_addr, home_addr1, home_addr2, country, state, city, postal_zip_code)
+        
+        #cur.execute("INSERT INTO users(name, username, email, password) VALUES(%s, %s, %s,%s)", (name, username, email, password))
+        if curr.execute("INSERT INTO enrolment(fname, lname, pnumber, email, image, staff_type,   \
+        acct_name, acct_number, acct_type, acct_sort_number, bank_name, bank_branch_addr, \
+        home_addr1, home_addr2, country, state, city, postal_zip_code)  \
+        VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", \
+         ( fname, lname, pnumber, email, image, staff_type, acct_name, acct_number, acct_type, \
+          acct_sort_number, bank_name, bank_branch_addr, home_addr1, home_addr2, country, state, \
+           city, postal_zip_code)):
+            print("Success!")
+
+        #mysql.connect.autocommit(True)
+        if cur.commit():
+            print("DB saved!")
+        #mysql.connection_object.commit()
+        mysql.connect.close()
+        
+        pass
     return render_template('enrolment.html', form=form, pageName=pageName, current_time=datetime.utcnow())
     
     

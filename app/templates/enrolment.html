@@ -10,7 +10,7 @@
 	<div class="container">
 		<div class="container-fluid content-center" >
 			<!--form start -->
-			<form role="form" class="container card text-success" >
+			<form method="POST" action="" role="form" class="container card text-success" >
 			
 				<!--header for the form -->  
 				<h4 class="form-header text-center"> Employee Enrolment</h4>
@@ -55,7 +55,8 @@
 						name = "image" onchange="readURL(this);" 
 						id="validatedCustomFile" required-->
 						{{render_field(form.image, 
-		              			class_="custom-file-input",  onchange="readURL(this);" , 
+		              			class_="custom-file-input", 
+		              			 onchange="readURL(this);" , 
 						id="validatedCustomFile" )}}
 						<!--label class="custom-file-label"
 						  for="validatedCustomFile">Choose image 
