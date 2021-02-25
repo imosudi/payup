@@ -66,8 +66,12 @@ def renrollment():
         lname = form.lname.data 
         pnumber = form.pnumber.data 
         email = form.email.data 
-        image = secure_filename(form.image.data.filename) #= request.files['image'] #form.image.data
-        imagename = image.filename()
+        docfile 	= request.files['docfile']
+        #docname 	= secure_filename(docfile.filename)
+        docname 	= docfile.filename
+        docfile 	= docfile.read() #.filename
+        image = docfile
+        imagename = docname
         #image = image.read() #.filename 
         staff_type = form.staff_type.data 
         acct_name = form.acct_name.data 
@@ -88,13 +92,12 @@ def renrollment():
         #cur.execute("SELECT * FROM enrolment")
         #dbasedata = cur.fetchall()
         
-        cur.execute("INSERT INTO enrolment(fname, lname, pnumber, email, image, staff_type,   \
-        acct_name, acct_number, acct_type, acct_sort_number, bank_name, bank_branch_addr, \
-        home_addr1, home_addr2, country, state, city, postal_zip_code)  \
-        VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", \
-         ( fname, lname, pnumber, email, image, staff_type, acct_name, acct_number, acct_type, \
-          acct_sort_number, bank_name, bank_branch_addr, home_addr1, home_addr2, country, state, \
-           city, postal_zip_code))
+        cur.execute("INSERT INTO enrolment(fname, lname, pnumber, email, imagename, image, \
+        staff_type, acct_name, acct_number, acct_type, acct_sort_number, bank_name, bank_branch_addr, \
+        home_addr1, home_addr2, country, state, city, postal_zip_code) VALUES(%s, %s, %s, %s, %s, %s, \
+         %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", ( fname, lname, pnumber, email, \
+         imagename, image, staff_type, acct_name, acct_number, acct_type, acct_sort_number, bank_name, \
+         bank_branch_addr, home_addr1, home_addr2, country, state, city, postal_zip_code))
 
         mysql.connect.close()
         
