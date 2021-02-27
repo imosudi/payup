@@ -56,9 +56,9 @@
 							<input type="file" class="custom-file-input " 
 							name = "docfile" onchange="readURL(this);" 
 							id="validatedCustomFile" required>
+							
 							<label class="custom-file-label"
-							for="validatedCustomFile"> Choose file...
-							</label>
+							for="docfile"> </label>
 							<img class="img-responsive mx-auto " 
 							style="width:250px;" id="blah"
 							src="{{url_for('static', 
@@ -79,7 +79,7 @@
           
           			<!--row containing payment methods -->
           			
-				<!--block with image and checkbox -->
+				<block with image and checkbox >
              				<!--div class="col-md-4 form-check">
 			 	 		<input class="form-check-input" type="radio"
 			 	 		 name="flexRadioDefault" id="flexRadioDefault1"
@@ -101,7 +101,7 @@
 						</label>
 					</div-->
 					{{render_field(form.staff_type, 
-		              			class_="col-md-4")}}
+		              			class_="form-check form-check-inline")}}
 				        <hr>	
 				</div>
           
@@ -132,7 +132,7 @@
                 		<div class="row">
                       			<!--div block for selection of month -->
                       			<div class="col-md-4 mb-3 pr-md-0">
-                      				{{render_field(form.acct_type, 
+                      				{{render_field(form.acct_type, size=2,  
                       				class_="form-control")}}
                       			</div>
                       			<!--div block for selection of year -->

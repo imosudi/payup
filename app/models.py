@@ -12,7 +12,8 @@ from werkzeug.datastructures import  FileStorage
 
 
 import email_validator
-#fname lname pnumber email image staff_type acct_name acct_number acct_type acct_sort_number bank_name bank_branch_addr home_addr1 home_addr2 country state city postal_zip_code
+
+#enrolmentForm = ['fname', 'lname', 'pnumber', 'email', 'imagename', 'image', 'staff_type', 'acct_name', 'acct_number', 'acct_type', 'acct_sort_number', 'bank_name', 'bank_branch_addr', 'home_addr1', 'home_addr2', 'country', 'state', 'city', 'postal_zip_code']
 
 class enrolmentForm(Form):
     fname = StringField('First Name', [validators.Length(min=5, max=50)])
@@ -21,13 +22,12 @@ class enrolmentForm(Form):
     email = StringField('E-mail Address', [validators.Email()])
     #image = FileField(u'image', validators=[Required()])
     #image = FileField()
-    docfile = FileField()
-    staff_type = RadioField('Staff Type', 
-    choices=[('flexRadioDefault1','Contract'),('flexRadioDefault1','Permanent')])
+    docfile = FileField() #Aka image
+    staff_type = RadioField('Staff Type', choices=[('Contract','Contract'),('Permanent','Permanent')])
     acct_name = StringField('Account Name', [validators.Length(min=8)])
     acct_number = StringField('Account Number', [validators.Length(min=10, max=14)])
     acct_type = SelectField(u'Account Type', 
-    choices = [('Savings', 'Savings'), ('Current', 'Current')])
+    choices = [('Savings', 'Savings'), ('Current', 'Current')], validators = [Required()])
     acct_sort_number = StringField('Sorting Number', [validators.Length(min=4)])
     bank_name = StringField('Bank Name', [validators.Length(min=3, max=80)])
     bank_branch_addr = StringField('Bank Branch Address', [validators.Length(min=3, max=80)])
@@ -39,6 +39,13 @@ class enrolmentForm(Form):
     state = StringField('State', [validators.Length(min=3, max=80)])  
     city = StringField('City', [validators.Length(min=3, max=80)])
     postal_zip_code = StringField('Postal/Zip Code', [validators.Length(min=3, max=80)])
+    
+    def enrolmentFormList():
+        enrolmentFormList = ['fname', 'lname', 'pnumber', 'email', 'staff_type', \
+         'acct_name', 'acct_number', 'acct_type', 'acct_sort_number', 'bank_name', 'bank_branch_addr', \
+          'home_addr1', 'home_addr2', 'country', 'state', 'city', 'postal_zip_code']
+        return enrolmentFormList
+          
     
     
     

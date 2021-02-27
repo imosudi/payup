@@ -59,14 +59,17 @@ def renrollment():
     pageName = 'enrolment'
     dbconnect=employeeEnrolmentTable.dbConnect()
     form = enrolmentForm(request.form) #try (request.flaskForm)
-    print(form)
     if request.method == "POST" and  form.validate():
         #print("This form has been validated and ready for POSTING")
+        enrolmentFormList = enrolmentForm.enrolmentFormList()
+        for i in enrolmentFormList:
+            print(i)
         fname = form.fname.data
         lname = form.lname.data 
         pnumber = form.pnumber.data 
         email = form.email.data 
         docfile 	= request.files['docfile']
+        print(type(docfile))
         #docname 	= secure_filename(docfile.filename)
         docname 	= docfile.filename
         docfile 	= docfile.read() #.filename

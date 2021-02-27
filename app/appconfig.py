@@ -54,16 +54,16 @@ class employeeEnrolmentTable():
 	id INT(5) NOT NULL AUTO_INCREMENT , 
 	fname VARCHAR(100) NULL DEFAULT NULL ,
 	lname VARCHAR(100) NULL DEFAULT NULL ,
-	pnumber VARCHAR(100) NULL DEFAULT NULL ,
+	pnumber VARCHAR(50) NULL DEFAULT NULL ,
 	email VARCHAR(150) NULL DEFAULT NULL ,
 	imagename VARCHAR(255) NULL DEFAULT NULL ,
 	image MEDIUMBLOB , 
-	staff_type VARCHAR(450) NULL DEFAULT NULL , 
-	acct_name VARCHAR(100) NULL DEFAULT NULL ,
-	acct_number VARCHAR(100) NULL DEFAULT NULL ,
+	staff_type VARCHAR(50) NULL DEFAULT NULL , 
+	acct_name VARCHAR(80) NULL DEFAULT NULL ,
+	acct_number INT(50) NULL DEFAULT NULL , 
 	acct_type VARCHAR(100) NULL DEFAULT NULL ,
-	acct_sort_number VARCHAR(100) NULL DEFAULT NULL ,
-	bank_name VARCHAR(100) NULL DEFAULT NULL ,
+	acct_sort_number VARCHAR(80) NULL DEFAULT NULL ,
+	bank_name VARCHAR(80) NULL DEFAULT NULL ,
 	bank_branch_addr VARCHAR(100) NULL DEFAULT NULL ,
 	home_addr1 VARCHAR(100) NULL DEFAULT NULL ,
 	home_addr2 VARCHAR(100) NULL DEFAULT NULL ,
@@ -80,8 +80,6 @@ class employeeEnrolmentTable():
     def dbConnect():
         enrol_employee=employeeEnrolmentTable.enrolmentSQL()
         cur = mysql.connect.cursor()
-        if cur:
-           print(" Database Connection Successful! ")
         #print(create_employee)
         cur.execute(enrol_employee)
         mysql.connect.commit()
