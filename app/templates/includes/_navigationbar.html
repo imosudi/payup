@@ -70,6 +70,16 @@
     					{% endif %}
 				</li>
 				<!--li class="nav-item">
+					<span class="badge rounded-pill bg-primary">
+					{{ moment(current_time).format('hh:mm:ss A') }}
+					</span>
+					
+				</li-->	
+				<li class="nav-item">
+					<span class="badge rounded-pill bg-primary" id="clock"></span>
+				</li>	
+				
+				<!--li class="nav-item">
 					<a class="nav-link " href="#" tabindex="-1" 
 					aria-disabled="true">Disabled</a>
 				</li-->
