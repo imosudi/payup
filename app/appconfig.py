@@ -1,4 +1,5 @@
 #from flask_mysqldb import MySQL
+from flask import flash
 from app import app
 
 from app import mysql
@@ -38,13 +39,26 @@ class createEmployee():
 	
     def dbConnect():
         create_employee_table=createEmployee.createEmployeeSQL()
-        cur = mysql.connect.cursor()
-        if cur:
-           print(" Database Connection Successful! ")
-        #print(create_employee_)
-        cur.execute(create_employee_table)
-        mysql.connect.commit()
-        mysql.connect.close()
+        #if mysql.connect.is_connected():
+        try:
+            #print("Successfully Connected to Database Server")
+            cur = mysql.connect.cursor()
+            #Next line for debugging only
+            print("Successfully Connected to Database Server")
+            #Web client database connection status notification
+            flash("Successfully Connected to Database Server")
+            if cur:
+               print(" Database Connection Successful! ")
+            #print(create_employee_)
+            cur.execute(create_employee_table)
+            mysql.connect.commit()
+            mysql.connect.close()
+        #else:
+        except :
+            #Next line for debugging only
+            print("Can't connect to MySQL Database server")
+            #Web client database connection status notification
+            flash("Can't connect to MySQL Database server")
         
 class employeeEnrolmentTable():
     def enrolmentSQL():
@@ -79,11 +93,21 @@ class employeeEnrolmentTable():
 	
     def dbConnect():
         enrol_employee=employeeEnrolmentTable.enrolmentSQL()
-        cur = mysql.connect.cursor()
-        #print(create_employee)
-        cur.execute(enrol_employee)
-        mysql.connect.commit()
-        mysql.connect.close()
+        try:
+            cur = mysql.connect.cursor()
+            #Next line for debugging only
+            print("Successfully Connected to Database Server")
+            #Web client database connection status notification
+            flash("Successfully Connected to Database Server")
+            #print(create_employee)
+            cur.execute(enrol_employee)
+            mysql.connect.commit()
+            mysql.connect.close()
+        except:
+            #Next line for debugging only
+            print("Can't connect to MySQL Database server")
+            #Web client database connection status notification
+            flash("Can't connect to MySQL Database server")
         
 #cur.execute("INSERT INTO documents(docname, docfile) VALUES(%s, %s)", (docname, docfile))
 """
